@@ -1,7 +1,8 @@
 
 
 const filterInitialState = {
-    status: 'all',
+    // status: 'all',
+    status: 'All',
     colors: []
 };
 
