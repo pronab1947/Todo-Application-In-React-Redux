@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { statusChanged, colorChanged } from "../redux/filters/filterAction"
-import filterInitialState from "../redux/filters/filterInitialState";
 
 const numberOfTodos = (no_of_todos) => {
     switch (no_of_todos) {
@@ -17,10 +16,10 @@ const numberOfTodos = (no_of_todos) => {
 export default function Footer() {
     const todos = useSelector((state) => state.todos);
     const filters = useSelector((state) => state.filters);
-    // const filterInitialState = useSelector((state) => state.filterInitialState);
+
     const dispatch = useDispatch();
-    // const { status, colors } = filters;
-    const { status, colors } = filterInitialState;
+    const { status, colors } = filters;
+    console.log(status);
 
     const todosRemaining = todos.filter((todo) => !todo.completed).length;
 
@@ -45,7 +44,7 @@ export default function Footer() {
                 <li className={`cursor-pointer ${status === 'All' && 'font-bold'}`}
                     onClick={() => handleStatusChange('All')}>All</li>
                 <li>|</li>
-                <li className={`cursor-pointer ${status === 'incomplete' && 'font-bold'}`} onClick={() => handleStatusChange('Incomplete')}>Incomplete</li>
+                <li className={`cursor-pointer ${status === 'Incomplete' && 'font-bold'}`} onClick={() => handleStatusChange('Incomplete')}>Incomplete</li>
                 <li>|</li>
                 <li className={`cursor-pointer ${status === 'Complete' && 'font-bold'}`}
                     onClick={() => handleStatusChange('Complete')} >Complete</li>
