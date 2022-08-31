@@ -4,6 +4,7 @@ import initialState from './filterInitialState';
 const filterReducer = (state = initialState, action) => {
     switch (action.type) {
         case STATUSCHANGED:
+            console.log('status changed');
             return {
                 ...state,
                 status: action.payload
