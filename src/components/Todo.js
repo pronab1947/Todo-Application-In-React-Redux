@@ -7,7 +7,6 @@ export default function Todo({ todo }) {
 
     const dispatch = useDispatch();
     const { text, id, completed, color } = todo;
-    // const { text, id, completed, color } = todoInitialState;
 
     const handleStatusChange = (todoId) => {
         dispatch(toggled(todoId))
